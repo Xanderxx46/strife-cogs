@@ -50,10 +50,14 @@ class PKLens(commands.Cog):
         self.check_fronters_menu = app_commands.ContextMenu(
             name="fronters",
             callback=self.check_fronter_callback,
+            allowed_installs=app_commands.AppInstallationType(guild=True, user=True),
+            allowed_contexts=app_commands.AppCommandContext(guild=True, dm_channel=True, private_channel=True),
         )
         self.view_profile_menu = app_commands.ContextMenu(
             name="profile",
             callback=self.view_profile_callback,
+            allowed_installs=app_commands.AppInstallationType(guild=True, user=True),
+            allowed_contexts=app_commands.AppCommandContext(guild=True, dm_channel=True, private_channel=True),
         )
 
     async def cog_load(self) -> None:
